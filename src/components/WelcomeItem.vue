@@ -1,3 +1,13 @@
+<!-- =========================================================================
+/// <summary>
+/// WelcomeItem.vue
+/// vue-shoƥer
+/// created by Mehrdad Soleimanimajd on 28.11.2023
+/// </summary>
+/// <created>ʆϒʅ, 28.11.2023</created>
+/// <changed>ʆϒʅ, 01.12.2023</changed>
+========================================================================== -->
+
 <template>
   <div class="item">
     <i>
@@ -26,7 +36,6 @@
 
 i {
   display: flex;
-  place-items: center;
   place-content: center;
   width: 32px;
   height: 32px;
