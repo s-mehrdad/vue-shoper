@@ -5,7 +5,7 @@
 /// created by Mehrdad Soleimanimajd on 28.11.2023
 /// </summary>
 /// <created>ʆϒʅ, 28.11.2023</created>
-/// <changed>ʆϒʅ, 01.12.2023</changed>
+/// <changed>ʆϒʅ, 05.12.2023</changed>
 ========================================================================== -->
 
 <script setup lang="ts">
@@ -41,7 +41,7 @@ import SupportIcon from './icons/IconSupport.vue'
       <EcosystemIcon />
     </template>
     <template #heading>More</template>
-    When it comes to shops, 
+    When it comes to shops,
     <a href="https://shoper.vuejs.org/" target="_blank" rel="noopener">Shoƥer</a>
     is a friend of humans and animals.
   </WelcomeItem>
@@ -51,7 +51,7 @@ import SupportIcon from './icons/IconSupport.vue'
       <CommunityIcon />
     </template>
     <template #heading>Community</template>
-    Got stuck? Call phone numbers available on 
+    Got stuck? Call phone numbers available on
     <a href="https://phonelines.vuejs.org" target="_blank" rel="noopener">Shoƥer Land</a>.
   </WelcomeItem>
 
@@ -60,7 +60,9 @@ import SupportIcon from './icons/IconSupport.vue'
       <SupportIcon />
     </template>
     <template #heading>Support Shoƥer</template>
-    As an independent influencer or enthusiast, Shoƥer relies on in advance free advertisement and report there of here 
-    <a href="https://shoper.vuejs.org/sponsor/" target="_blank" rel="noopener">sponsor</a>. Cost can only be discussed after delivery. :/
+    As an independent influencer or enthusiast, Shoƥer relies on in advance free advertisement and
+    report there of here
+    <a href="https://shoper.vuejs.org/sponsor/" target="_blank" rel="noopener">sponsor</a>. Cost can
+    only be discussed after delivery. :/
   </WelcomeItem>
 </template>

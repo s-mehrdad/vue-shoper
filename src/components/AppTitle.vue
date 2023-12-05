@@ -5,7 +5,7 @@
 /// created by Mehrdad Soleimanimajd on 30.11.2023
 /// </summary>
 /// <created>ʆϒʅ, 30.11.2023</created>
-/// <changed>ʆϒʅ, 01.12.2023</changed>
+/// <changed>ʆϒʅ, 04.12.2023</changed>
 ========================================================================== -->
 
 <script setup lang="ts">
@@ -30,7 +30,7 @@ h1 {
   font-weight: 500;
   font-size: 2rem;
   position: relative;
-  /* top: -10px; */
+  top: -10px;
 }
 
 h3 {
@@ -38,7 +38,7 @@ h3 {
 }
 
 .app-title {
-  /* text-align: center; */
+  text-align: center;
 }
 
 @media (min-width: 1024px) {
