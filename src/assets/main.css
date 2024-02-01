@@ -5,7 +5,7 @@
 /// created by Mehrdad Soleimanimajd on 28.11.2023
 /// </summary>
 /// <created>ʆϒʅ, 28.11.2023</created>
-/// <changed>ʆϒʅ, 05.12.2023</changed>
+/// <changed>ʆϒʅ, 01.02.2024</changed>
 =========================================================================== */
 
 @import './base.css';
@@ -14,10 +14,11 @@
 @tailwind components;
 @tailwind utilities;
 
-#app {
+#app,
+#app-theme-wrapper {
   max-width: 1280px;
   /* margin: 0 auto; */
-  padding: 2rem;
+  /* padding: 2rem; */
 
   font-weight: normal;
 }
@@ -28,31 +29,33 @@ a,
   color: hsla(160, 100%, 37%, 1);
   transition: 0.4s;
 }
-body {
+body,
+#app {
   /* flex and grid representation */
   display: flex;
   flex-direction: column;
-  place-content: start space-evenly;
-  /* justify-content: center; */
-  /* align-items: center; */
-  margin: auto 10px;
-  /* align-content: center; */
+  /* place-content: center space-evenly; */
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  /* margin: auto 10px; */
+  background-color: red;
 }
 
-#app {
+#app-theme-wrapper {
   /* flex representation */
-  /* display: flex;
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  align-content: flex-start; */
+  align-content: flex-start;
   /* place-content: start space-between; */
 
   /* grid representation */
-  display: grid;
+  /* display: grid;
   grid-template-rows: auto 1fr;
   grid-template-columns: 1fr auto 1fr;
-  grid-gap: 30px;
+  grid-gap: 30px; */
 }
 
 @media (hover: hover) {
@@ -62,14 +65,14 @@ body {
 }
 
 @media (min-width: 1024px) {
-  #app {
+  #app-theme-wrapper {
     /* flex representation */
-    /* display: flex;
+    display: flex;
     flex-direction: row;
     align-items: flex-start;
     justify-content: flex-start;
-    align-content: flex-start; */
-    /* place-content: start space-evenly; */
+    align-content: flex-start;
+    place-content: start space-evenly;
 
     background-color: #b0ddffac;
 
@@ -77,12 +80,12 @@ body {
     transition: background-color;
     transition-duration: 2s;
 
-    padding: 1rem;
+    /* padding: 1rem; */
 
     /* grid representation */
-    display: grid;
+    /* display: grid;
     grid-template-rows: 1fr auto 1fr;
     grid-template-columns: 200px 1fr;
-    grid-gap: 30px;
+    grid-gap: 30px; */
   }
 }

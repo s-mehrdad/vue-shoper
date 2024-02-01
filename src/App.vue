@@ -5,7 +5,7 @@
 /// created by Mehrdad Soleimanimajd on 28.11.2023
 /// </summary>
 /// <created>ʆϒʅ, 28.11.2023</created>
-/// <changed>ʆϒʅ, 05.12.2023</changed>
+/// <changed>ʆϒʅ, 01.02.2024</changed>
 ========================================================================== -->
 
 <script setup lang="ts">
@@ -14,51 +14,58 @@ import AppTitle from './components/AppTitle.vue'
 </script>
 
 <template>
-  <!-- <header> -->
+  <div class="dark-theme" id="app-theme-wrapper">
+    <!-- <header> -->
 
-  <!-- belong to grid representation (for devs with history) -->
-  <!-- <div class="row-gap1"></div>
+    <!-- belong to grid representation (for devs with history) -->
+    <!-- <div class="row-gap1"></div>
   <div class="row-gap2"></div>
   <div class="row-gap3"></div> -->
 
-  <!-- belong to grid representation -->
-  <!-- <div class="column-gap1"></div> -->
+    <!-- belong to grid representation -->
+    <!-- <div class="column-gap1"></div> -->
 
-  <div class="wrapper">
-    <div class="shoper-logo">
-      <img alt="Vue logo" class="logo w-14 h-14" src="@/assets/logo.svg" />
-      <AppTitle title="Vue Shoƥer" />
+    <div class="wrapper">
+      <div class="shoper-logo">
+        <img alt="Vue logo" class="logo w-14 h-14" src="@/assets/logo.svg" />
+        <AppTitle title="Vue Shoƥer" />
+      </div>
+
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <RouterLink to="/">Home</RouterLink>
+            </li>
+            <li>
+              <RouterLink to="/about">About</RouterLink>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
 
-    <div>
-      <nav>
-        <ul>
-          <li>
-            <RouterLink to="/">Home</RouterLink>
-          </li>
-          <li>
-            <RouterLink to="/about">About</RouterLink>
-          </li>
-        </ul>
-      </nav>
+    <!-- belong to grid representation -->
+    <!-- <div class="column-gap2"></div> -->
+    <!-- </header> -->
+
+    <div class="content">
+      <RouterView />
     </div>
-  </div>
 
-  <!-- belong to grid representation -->
-  <!-- <div class="column-gap2"></div> -->
-  <!-- </header> -->
-
-  <div class="content">
-    <RouterView />
-  </div>
-
-  <!-- belong to grid representation -->
-  <!-- <div class="row-gap4"></div>
+    <!-- belong to grid representation -->
+    <!-- <div class="row-gap4"></div>
   <div class="row-gap5"></div>
   <div class="row-gap6"></div> -->
+  </div>
 </template>
 
 <style scoped>
+.dark-theme {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(154, 255, 247);
+}
 .column-gap1 {
   /* grid representation (for devs with history) */
   grid-column: 1/2;
@@ -74,8 +81,8 @@ import AppTitle from './components/AppTitle.vue'
   height: 100px;
 }
 .wrapper {
-  grid-column: 2/3;
-  grid-row: 1;
+  /* grid-column: 2/3;
+  grid-row: 1; */
 
   /* flex representation */
   /* display: flex; */
@@ -85,8 +92,8 @@ import AppTitle from './components/AppTitle.vue'
   place-items: center space-between;
 }
 .content {
-  grid-column: 1 / 3;
-  grid-row: 2;
+  /* grid-column: 1 / 3;
+  grid-row: 2; */
 
   /* flex representation */
   align-items: flex-start;
@@ -194,13 +201,35 @@ nav a:first-of-type {
     height: 100px;
   }
   .wrapper {
-    grid-column: 1/2;
-    grid-row: 2;
+    /* grid-column: 1/2;
+    grid-row: 2; */
+
+    display: flex;
+    /* align-content: center; */
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    place-items: center space-between;
+    /* flex-shrink: 0; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* margin-left: 100px; */
   }
   .content {
-    grid-column: 2;
-    grid-row: 2;
+    /* grid-column: 2;
+    grid-row: 2; */
     padding-left: 20px;
+
+    /* flex representation */
+    align-self: flex-start;
+    align-items: flex-start;
+    justify-content: flex-start;
+    place-content: end space-between;
+
+    background-color: #ff00008b;
   }
 
   header {
@@ -223,32 +252,6 @@ nav a:first-of-type {
     /* display: inline-flex; */
     /* flex: 1 1 auto; */
     /* margin: 0 2rem 0 0; */
-  }
-
-  .wrapper {
-    /* display: flex; */
-    /* align-content: center; */
-    align-items: center;
-    align-self: center;
-    justify-content: center;
-    place-items: center space-between;
-    /* flex-shrink: 0; */
-    /* display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap; */
-    /* margin-left: 100px; */
-  }
-
-  .content {
-    /* flex representation */
-    align-self: flex-start;
-    align-items: flex-start;
-    justify-content: flex-start;
-    place-content: end space-between;
-
-    background-color: #ff00008b;
   }
 }
 </style>
