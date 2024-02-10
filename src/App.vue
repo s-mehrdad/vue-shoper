@@ -5,16 +5,27 @@
 /// created by Mehrdad Soleimanimajd on 28.11.2023
 /// </summary>
 /// <created>ʆϒʅ, 28.11.2023</created>
-/// <changed>ʆϒʅ, 01.02.2024</changed>
+/// <changed>ʆϒʅ, 10.02.2024</changed>
 ========================================================================== -->
 
 <script setup lang="ts">
+import { ref, watch } from 'vue'
 import { RouterLink, RouterView } from 'vue-router'
 import AppTitle from './components/AppTitle.vue'
+import AppTheme from './components/AppTheme.vue'
+
+const currentTheme = ref('dark-theme')
+
+watch(currentTheme, async (newValue, oldValue) => {
+  return newValue === 'dark-theme'
+    ? (document.body.className = 'dark-theme')
+    : (document.body.className = 'light-theme')
+})
 </script>
 
 <template>
-  <div class="dark-theme" id="app-theme-wrapper">
+  <!-- <Teleport to="body"> -->
+  <div class="viewPoint" id="app">
     <!-- <header> -->
 
     <!-- belong to grid representation (for devs with history) -->
@@ -29,6 +40,14 @@ import AppTitle from './components/AppTitle.vue'
       <div class="shoper-logo">
         <img alt="Vue logo" class="logo w-14 h-14" src="@/assets/logo.svg" />
         <AppTitle title="Vue Shoƥer" />
+        <AppTheme
+          current-theme="dark-theme"
+          @theme-change="
+            (prm) => {
+              currentTheme = prm
+            }
+          "
+        ></AppTheme>
       </div>
 
       <div>
@@ -58,13 +77,32 @@ import AppTitle from './components/AppTitle.vue'
   <div class="row-gap5"></div>
   <div class="row-gap6"></div> -->
   </div>
+  <!-- </Teleport> -->
 </template>
 
 <style scoped>
-.dark-theme {
+/* body {
+  background-color: red;
+} */
+.viewPoint {
   width: 100vw;
   height: 100vh;
-  background-color: rgb(154, 255, 247);
+  /* background-color: #677a81;
+  color: azure;
+
+  transition-timing-function: linear;
+  transition-property: background-color;
+  transition-duration: 1s; */
+}
+.light-theme {
+  /* width: 100vw;
+  height: 100vh; */
+  background-color: #c7e9e6;
+  color: darkred;
+
+  transition-timing-function: linear;
+  transition-property: background-color;
+  transition-duration: 1s;
 }
 .column-gap1 {
   /* grid representation (for devs with history) */
@@ -204,18 +242,18 @@ nav a:first-of-type {
     /* grid-column: 1/2;
     grid-row: 2; */
 
-    display: flex;
-    /* align-content: center; */
+    /* display: flex; */
+    align-content: center;
     align-items: center;
     align-self: center;
     justify-content: center;
-    place-items: center space-between;
+    /* place-items: center space-between; */
     /* flex-shrink: 0; */
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* flex-wrap: wrap; */
     /* margin-left: 100px; */
   }
   .content {
@@ -224,7 +262,8 @@ nav a:first-of-type {
     padding-left: 20px;
 
     /* flex representation */
-    align-self: flex-start;
+    /* align-self: flex-start; */
+    align-self: center;
     align-items: flex-start;
     justify-content: flex-start;
     place-content: end space-between;
