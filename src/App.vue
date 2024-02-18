@@ -5,7 +5,7 @@
 /// created by Mehrdad Soleimanimajd on 28.11.2023
 /// </summary>
 /// <created>ʆϒʅ, 28.11.2023</created>
-/// <changed>ʆϒʅ, 10.02.2024</changed>
+/// <changed>ʆϒʅ, 18.02.2024</changed>
 ========================================================================== -->
 
 <script setup lang="ts">
@@ -17,6 +17,8 @@ import AppTheme from './components/AppTheme.vue'
 const currentTheme = ref('dark-theme')
 
 watch(currentTheme, async (newValue, oldValue) => {
+  // let a = browser.theme.getCurrent();
+  // window.matchMedia
   return newValue === 'dark-theme'
     ? (document.body.className = 'dark-theme')
     : (document.body.className = 'light-theme')
@@ -36,21 +38,24 @@ watch(currentTheme, async (newValue, oldValue) => {
     <!-- belong to grid representation -->
     <!-- <div class="column-gap1"></div> -->
 
-    <div class="wrapper">
-      <div class="shoper-logo">
+    <div class="app-wrapper">
+      <div id="app-wrapper-shoper-logo">
         <img alt="Vue logo" class="logo w-14 h-14" src="@/assets/logo.svg" />
         <AppTitle title="Vue Shoƥer" />
+      </div>
+      <div id="app-wrapper-controls">
         <AppTheme
+          id="app-theme"
           current-theme="dark-theme"
           @theme-change="
             (prm) => {
               currentTheme = prm
             }
           "
-        ></AppTheme>
+        >
+        </AppTheme>
       </div>
-
-      <div>
+      <div id="app-wrapper-navigation">
         <nav>
           <ul>
             <li>
@@ -68,7 +73,7 @@ watch(currentTheme, async (newValue, oldValue) => {
     <!-- <div class="column-gap2"></div> -->
     <!-- </header> -->
 
-    <div class="content">
+    <div class="app-wrapper-content">
       <RouterView />
     </div>
 
@@ -86,7 +91,7 @@ watch(currentTheme, async (newValue, oldValue) => {
 } */
 .viewPoint {
   width: 100vw;
-  height: 100vh;
+  height: 100cap;
   /* background-color: #677a81;
   color: azure;
 
@@ -118,18 +123,43 @@ watch(currentTheme, async (newValue, oldValue) => {
   width: 100px;
   height: 100px;
 }
-.wrapper {
+.app-wrapper {
   /* grid-column: 2/3;
   grid-row: 1; */
 
   /* flex representation */
-  /* display: flex; */
+  /* display: flex;
+  flex-direction: row;
   align-items: center;
   align-self: center;
   justify-content: center;
-  place-items: center space-between;
+  place-items: center space-between; */
+
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: 1fr auto;
+  grid-gap: 10px;
 }
-.content {
+#app-wrapper-shoper-logo {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  clear: both;
+  /* margin-bottom: 100px; */
+}
+#app-wrapper-controls {
+  grid-column: 2/2;
+  grid-row: 1/2;
+}
+#app-wrapper-navigation {
+  grid-column: 1 / span 2;
+  grid-row: 2/2;
+}
+#app-theme {
+  display: block;
+  float: left;
+  clear: both;
+}
+.app-wrapper-content {
   /* grid-column: 1 / 3;
   grid-row: 2; */
 
@@ -140,7 +170,7 @@ watch(currentTheme, async (newValue, oldValue) => {
   place-items: start space-between;
 }
 
-.shoper-logo {
+#app-wrapper-shoper-logo {
   /* grid representation */
   /* display: grid;
   grid-template-columns: 60px 1fr; */
@@ -153,7 +183,7 @@ watch(currentTheme, async (newValue, oldValue) => {
 .logo {
   /* margin: 0 2rem 0 0; */
   /* display: flex;
-    align-content: center; */
+  align-content: center; */
   /* margin: 2% auto 2% auto; */
   padding: 2px;
 }
@@ -168,6 +198,7 @@ nav {
   font-size: 12px;
   text-align: center;
   margin-top: 2rem;
+  /* float: left; */
 }
 
 nav a.router-link-exact-active {
@@ -180,6 +211,7 @@ nav a.router-link-exact-active:hover {
 
 nav li {
   display: list-item;
+  float: left;
   list-style: square inside;
 }
 
@@ -238,15 +270,15 @@ nav a:first-of-type {
     width: 100px;
     height: 100px;
   }
-  .wrapper {
+  .app-wrapper {
     /* grid-column: 1/2;
     grid-row: 2; */
 
     /* display: flex; */
-    align-content: center;
+    /* align-content: center;
     align-items: center;
     align-self: center;
-    justify-content: center;
+    justify-content: center; */
     /* place-items: center space-between; */
     /* flex-shrink: 0; */
     /* display: flex; */
@@ -255,8 +287,25 @@ nav a:first-of-type {
     /* justify-content: center; */
     /* flex-wrap: wrap; */
     /* margin-left: 100px; */
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 1fr auto auto;
+    grid-gap: 10px;
   }
-  .content {
+  #app-wrapper-shoper-logo {
+    grid-column: 1 / span 2;
+    grid-row: 1/3;
+    /* margin-bottom: 60px; */
+  }
+  #app-wrapper-controls {
+    grid-column: 1 / span 2;
+    grid-row: 2/3;
+  }
+  #app-wrapper-navigation {
+    grid-column: 1 / span 2;
+    grid-row: 3/3;
+  }
+  .app-wrapper-content {
     /* grid-column: 2;
     grid-row: 2; */
     padding-left: 20px;
@@ -280,7 +329,7 @@ nav a:first-of-type {
     /* padding-right: calc(var(--section-gap) / 2); */
   }
 
-  .shoper-logo {
+  #app-wrapper-shoper-logo {
     /* display: grid;
     grid-template-columns: 50px 1fr; */
     /* display: flex;
