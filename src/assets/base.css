@@ -5,7 +5,7 @@
 /// created by Mehrdad Soleimanimajd on 28.11.2023
 /// </summary>
 /// <created>ʆϒʅ, 28.11.2023</created>
-/// <changed>ʆϒʅ, 29.11.2023</changed>
+/// <changed>ʆϒʅ, 21.02.2024</changed>
 =========================================================================== */
 
 /* color palette from <https://github.com/vuejs/theme> */
@@ -44,6 +44,12 @@
   --color-text: var(--vt-c-text-light-1);
 
   --section-gap: 160px;
+
+  --color-app-theme-background: #cfebfe;
+}
+
+.current-theme-adaptive {
+  background-color: #cfebfe;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -57,6 +63,12 @@
 
     --color-heading: var(--vt-c-text-dark-1);
     --color-text: var(--vt-c-text-dark-2);
+
+    --color-app-theme-background: #94b7c8;
+  }
+
+  .current-theme-adaptive {
+    background-color: #94b7c8;
   }
 }
 
@@ -70,8 +82,8 @@
 
 body {
   min-height: 100vh;
-  color: var(--color-text);
-  background: var(--color-background);
+  /* color: var(--color-text);
+  background: var(--color-background); */
   transition:
     color 0.5s,
     background-color 0.5s;

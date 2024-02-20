@@ -5,7 +5,7 @@
 /// created by Mehrdad Soleimanimajd on 28.11.2023
 /// </summary>
 /// <created>ʆϒʅ, 28.11.2023</created>
-/// <changed>ʆϒʅ, 18.02.2024</changed>
+/// <changed>ʆϒʅ, 21.02.2024</changed>
 ========================================================================== -->
 
 <script setup lang="ts">
@@ -14,14 +14,21 @@ import { RouterLink, RouterView } from 'vue-router'
 import AppTitle from './components/AppTitle.vue'
 import AppTheme from './components/AppTheme.vue'
 
-const currentTheme = ref('dark-theme')
+const currentTheme = ref('current-theme-adaptive')
+document.body.className = 'current-theme-adaptive'
 
 watch(currentTheme, async (newValue, oldValue) => {
   // let a = browser.theme.getCurrent();
   // window.matchMedia
-  return newValue === 'dark-theme'
-    ? (document.body.className = 'dark-theme')
-    : (document.body.className = 'light-theme')
+  if (newValue === 'dark-theme') {
+    document.body.className = 'dark-theme'
+  } else if (newValue === 'light-theme') {
+    document.body.className = 'light-theme'
+  } else if (newValue === 'current-theme-adaptive') {
+    document.body.className = 'current-theme-adaptive'
+  }
+  console.log(newValue)
+  return newValue
 })
 </script>
 
@@ -45,8 +52,7 @@ watch(currentTheme, async (newValue, oldValue) => {
       </div>
       <div id="app-wrapper-controls">
         <AppTheme
-          id="app-theme"
-          current-theme="dark-theme"
+          current-theme="current-theme-adaptive"
           @theme-change="
             (prm) => {
               currentTheme = prm
@@ -136,14 +142,14 @@ watch(currentTheme, async (newValue, oldValue) => {
   place-items: center space-between; */
 
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 2fr;
   grid-template-rows: 1fr auto;
   grid-gap: 10px;
 }
 #app-wrapper-shoper-logo {
   grid-column: 1/2;
   grid-row: 1/2;
-  clear: both;
+  /* clear: both; */
   /* margin-bottom: 100px; */
 }
 #app-wrapper-controls {
@@ -190,7 +196,7 @@ watch(currentTheme, async (newValue, oldValue) => {
 
 nav {
   text-align: left;
-  margin-left: -1rem;
+  margin-left: 1rem;
   font-size: 1rem;
   padding: 1rem 0;
   margin-top: 1rem;
@@ -281,10 +287,7 @@ nav a:first-of-type {
     justify-content: center; */
     /* place-items: center space-between; */
     /* flex-shrink: 0; */
-    /* display: flex; */
     /* flex-direction: row; */
-    /* align-items: center; */
-    /* justify-content: center; */
     /* flex-wrap: wrap; */
     /* margin-left: 100px; */
     display: grid;
@@ -294,7 +297,7 @@ nav a:first-of-type {
   }
   #app-wrapper-shoper-logo {
     grid-column: 1 / span 2;
-    grid-row: 1/3;
+    grid-row: 1/2;
     /* margin-bottom: 60px; */
   }
   #app-wrapper-controls {
@@ -303,7 +306,7 @@ nav a:first-of-type {
   }
   #app-wrapper-navigation {
     grid-column: 1 / span 2;
-    grid-row: 3/3;
+    grid-row: 3;
   }
   .app-wrapper-content {
     /* grid-column: 2;
